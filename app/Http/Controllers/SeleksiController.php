@@ -20,6 +20,10 @@ class SeleksiController extends Controller
     {
         $user = Auth::user()->id;
         $students = Student::where('user_id', $user)->get();
+
+        $students->map(function($student) {
+            $student->url_foto = asset('storage/'. $student->url_foto);
+        });
         return Inertia::render('Seleksi/Index', [
             'students' => $students
         ]);
