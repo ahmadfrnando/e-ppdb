@@ -37,10 +37,12 @@ return new class extends Migration
             $table->string('nama_ibu');
             $table->string('pekerjaan_ibu');
             $table->string('no_hp_ibu');
-
+            
             // tambahan
             $table->string('saran_dari')->nullable();
-
+            
+            // nilai
+            $table->integer('nilai')->default(0);
             // di terima apa tidak akan di lakkukan pengecekan oleh admin
             // 0 = proses seleksi
             // 1 = diterima

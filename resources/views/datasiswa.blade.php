@@ -219,7 +219,7 @@
             </div>
 
             <div class="section">
-                <h2>Quiz</h2>
+                <h2>Ujian Seleksi Penerimaan</h2>
                 <table>
                     @foreach ($questions as $key => $question)
                         <tr>
@@ -228,6 +228,7 @@
                         </tr>
                     @endforeach
                 </table>
+                <h1>Nilai seleksi yang diperoleh adalah {{ $student->nilai }}</h1>
             </div>
         </div>
     </div>

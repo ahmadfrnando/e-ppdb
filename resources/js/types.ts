@@ -70,6 +70,7 @@ export interface Student {
   pekerjaan_ibu: string;
   no_hp_ibu: string;
   saran_dari: string;
+  nilai: number;
 }
 
 export interface Schedule {

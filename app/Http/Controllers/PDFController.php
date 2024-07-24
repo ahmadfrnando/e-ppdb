@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Exports\StudentExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PDFController extends Controller
 {
@@ -19,5 +21,11 @@ class PDFController extends Controller
 
         return $pdf->download('Laporan-Seleksi.pdf');
         return redirect()->back();
+    }
+    
+    public function export(){
+        return Excel::download(new StudentExport, 'pendaftaran.xlsx');
+
+        redirect()->back();
     }
 }

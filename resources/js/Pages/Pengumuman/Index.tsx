@@ -7,8 +7,12 @@ import ImageLulus from '../../../../public/img/lolos.svg';
 import ImageAvailable from '../../../../public/img/noavailable.svg';
 
 export default function Pengumuman() {
-  const { schedules } = usePage<{ schedules: Schedule }>().props;
-  const { seleksi } = usePage<{ seleksi: Student }>().props;
+  // const { schedules } = usePage<{ schedules: Schedule[] }>().props;
+  // const { seleksi } = usePage<{ seleksi: Student[] }>().props;
+  const { schedules, seleksi } = usePage<{
+    schedules: Schedule[];
+    seleksi: Student[];
+  }>().props;
   const [detail, setDetail] = React.useState(false);
   const [selectedItem, setSelectedItem] = React.useState<any>(null);
 
@@ -34,37 +38,44 @@ export default function Pengumuman() {
     >
       <div className="py-12">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-          {seleksi && schedules ? (
-            <div className="bg-white p-4 dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-              <div className="flex flex-col gap-6">
-                {seleksi &&
-                  seleksi.map((data: any) => (
-                    <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-screen hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                      <img
-                        className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-                        src={ImageLulus}
-                        alt=""
-                      />
-                      <div
-                        key={data.id}
-                        className="flex flex-col justify-between p-4 leading-normal"
-                      >
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                          Selamat kepada {data.nama}
-                        </h5>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                          Kami dengan bangga mengumumkan bahwa Anda telah
-                          diterima sebagai peserta didik baru di SMP 1 Nasrani
-                          Medan. Kami sangat senang menyambut Anda di keluarga
-                          besar sekolah kami dan berharap Anda dapat meraih
-                          prestasi gemilang selama masa studi di sini. Selamat
-                          bergabung dan selamat menempuh perjalanan pendidikan
-                          yang baru!
-                        </p>
-                      </div>
+          <div className="bg-white p-4 dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+            <div className="flex flex-col gap-6">
+              {seleksi && schedules.length === 0 && <div className="bg-white max-h-lg w-full p-10 dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+                <div className="flex flex-col items-center justify-center">
+                  <img src={ImageAvailable} alt="error" className="max-w-sm" />
+                  <h1 className="text-3xl dark:text-white uppercase font-bold">
+                    Pemberitahuan Belum Tersedia
+                  </h1>
+                </div>
+              </div>}
+              {seleksi &&
+                seleksi.map((data: any) => (
+                  <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-screen hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img
+                      className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+                      src={ImageLulus}
+                      alt=""
+                    />
+                    <div
+                      key={data.id}
+                      className="flex flex-col justify-between p-4 leading-normal"
+                    >
+                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        Selamat kepada {data.nama}
+                      </h5>
+                      <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                        Kami dengan bangga mengumumkan bahwa Anda telah diterima
+                        sebagai peserta didik baru di SMP 1 Nasrani Medan. Kami
+                        sangat senang menyambut Anda di keluarga besar sekolah
+                        kami dan berharap Anda dapat meraih prestasi gemilang
+                        selama masa studi di sini. Selamat bergabung dan selamat
+                        menempuh perjalanan pendidikan yang baru!
+                      </p>
                     </div>
-                  ))}
-                {schedules.map((schedule: any) => (
+                  </div>
+                ))}
+              {schedules &&
+                schedules.map((schedule: any) => (
                   <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-screen hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                     <div
                       key={schedule.id}
@@ -103,18 +114,8 @@ export default function Pengumuman() {
                     </div>
                   </div>
                 ))}
-              </div>
             </div>
-          ) : (
-            <div className="bg-white max-h-lg w-full p-10 dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-              <div className="flex flex-col items-center justify-center">
-                <img src={ImageAvailable} alt="error" className="max-w-sm" />
-                <h1 className="text-3xl dark:text-white uppercase font-bold">
-                  Pemberitahuan Belum Tersedia
-                </h1>
-              </div>
-            </div>
-          )}
+          </div>
         </div>
         {detail && selectedItem && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">

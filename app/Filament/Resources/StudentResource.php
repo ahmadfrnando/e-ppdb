@@ -127,6 +127,7 @@ class StudentResource extends Resource
                 TextColumn::make('nama')->searchable(),
                 TextColumn::make('nis')->searchable(),
                 ImageColumn::make('url_foto')->square()->label('Pas Foto'),
+                TextColumn::make('nilai')->label('Nilai Seleksi')->suffix(' / 100'),
                 TextColumn::make('diterima')
                     ->searchable()
                     ->badge()
@@ -139,7 +140,6 @@ class StudentResource extends Resource
                         'Diterima' => 'success',
                         'Ditolak' => 'danger',
                     }),
-                    TextColumn::make('created_at')->label('Dibuat Pada')->dateTime('d F Y H:i:s')->searchable()->sortable(),
             ])
             ->filters([
                 SelectFilter::make('diterima')
@@ -173,7 +173,7 @@ class StudentResource extends Resource
                     ->action(function (array $data, Student $record): void {
                         $record->diterima = $data['diterima'];
                         $record->save();
-                        if($data['diterima'] == 1){
+                        if ($data['diterima'] == 1) {
                             redirect()->route('seleksi.diterima', $record->id);;
                         }
                     }),

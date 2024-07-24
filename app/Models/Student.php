@@ -16,7 +16,7 @@ class Student extends Model
         'nama', 'nis', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin',
         'nem', 'no_ijazah', 'alamat', 'url_foto', 'asal_sekolah', 'tahun_lulus',
         'nama_ayah', 'pekerjaan_ayah', 'no_hp_ayah', 'nama_ibu', 'pekerjaan_ibu',
-        'no_hp_ibu', 'saran_dari', 'diterima', 'user_id', 'ijazah', 'kartu_keluarga',
+        'no_hp_ibu', 'saran_dari', 'diterima', 'user_id', 'ijazah', 'kartu_keluarga', 'score'
     ];
 
     protected $casts = [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm, usePage } from '@inertiajs/react';
+import { useForm } from '@inertiajs/react';
 import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
 import InputError from '@/Components/InputError';
@@ -34,7 +34,6 @@ const Create = () => {
 
     _method: 'put'
   });
-  const { flash } = usePage().props as any;
 
   const handleSubmit = (e:any) => {
     e.preventDefault();
@@ -50,14 +49,7 @@ const Create = () => {
           <h1 className="text-2xl p-6 dark:text-white uppercase tracking-wide">
             Identitas Diri
           </h1>
-          {flash.message && (
-          <div
-            className=" text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
-            role="alert"
-          >
-            <span className="font-medium">{flash.message}</span>
-          </div>
-          )}
+          
         </div>
         <hr />
         <div className="grid grid-cols-2 gap-6 p-6">

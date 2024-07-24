@@ -71,6 +71,7 @@ Route::middleware([
 //     ->middleware('auth');
 
 Route::get('/laporan-seleksi', [PDFController::class, 'cetakseleksi'])->name('download.laporan-seleksi');
+Route::get('/export-laporan-seleksi', [PDFController::class, 'export'])->name('export.laporan-seleksi');
 // Route::get('/seleksi/diterima', [PengumumanController::class, 'test'])->name('seleksi.diterima');
 Route::get('/seleksi/diterima/{id}', [PengumumanController::class, 'sendNotificationDiterima'])->name('seleksi.diterima');
 Route::get('/pemberitauan', [PengumumanController::class, 'sendNotification'])->name('pemberitahuan');

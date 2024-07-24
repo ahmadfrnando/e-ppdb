@@ -14,8 +14,13 @@ class ListStudents extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            // Actions\CreateAction::make(),
+            Actions\Action::make('Export')
+            ->action(function() {
+                return redirect()->route('export.laporan-seleksi');
+            }),
             Actions\Action::make('Reports')
+                ->icon('heroicon-o-printer')
                 ->form([
                     Select::make('diterima')
                         ->options([
