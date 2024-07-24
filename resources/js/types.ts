@@ -83,6 +83,14 @@ export interface Schedule {
   body: string;
 }
 
+export interface Quiz {
+  length: number;
+  map(arg0: (schedule: any) => any): import("react").ReactNode;
+  id: number;
+  answers: JSON;
+}
+
+
 export interface Kegiatans {
   data: any;
   links: any;

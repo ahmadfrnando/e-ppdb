@@ -40,7 +40,8 @@ const akreditasi = [
   },
 ]
 
-const InformasiSekolah = () => {
+const 
+InformasiSekolah = () => {
   return (
     <div
       className="bg-white"

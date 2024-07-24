@@ -202,19 +202,19 @@
             <div class="section page-break">
                 <div class="form-group img-container">
                     <label for="url_foto">Pas Foto 3 x 4:</label>
-                    <img src="{{ public_path('storage/' . $student->url_foto) }}" alt="Pas Foto">
+                    <img src="{{ asset('storage/'.$student->url_foto) }}" alt="Pas Foto">
                 </div>
             </div>
             <div class="section page-break">
                 <div class="form-group img-container">
                     <label for="kartu_keluarga">Kartu Keluarga:</label>
-                    <img src="{{ public_path('storage/' . $student->kartu_keluarga) }}" alt="Kartu Keluarga">
+                    <img src="{{ asset('storage/'.$student->kartu_keluarga) }}" alt="Kartu Keluarga">
                 </div>
             </div>
             <div class="section page-break">
                 <div class="form-group img-container">
                     <label for="ijazah">Ijazah:</label>
-                    <img src="{{ public_path('storage/' . $student->ijazah) }}" alt="Ijazah">
+                    <img src="{{ asset('storage/'.$student->ijazah) }}" alt="Ijazah">
                 </div>
             </div>
 

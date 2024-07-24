@@ -90,7 +90,7 @@ export default function Quiz() {
 
   return (
     <AppLayout
-      title="Quiz"
+      title="Ujian Seleksi Penerimaan Peserta Didik Baru"
       renderHeader={() => (
         <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
           Ujian Seleksi Penerimaan Peserta Didik Baru

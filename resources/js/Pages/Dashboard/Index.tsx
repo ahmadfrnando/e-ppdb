@@ -17,7 +17,7 @@ export default function Dashboard() {
         icon: 'info',
         position: 'center',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 4000,
       });
     }
   }, [flash.message, MySwal]);

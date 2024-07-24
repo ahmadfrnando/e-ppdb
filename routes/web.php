@@ -58,20 +58,14 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/seleksi', [SeleksiController::class, 'index'])->name('seleksi');
-    Route::get('/seleksi/{id}/detail', [SeleksiController::class, 'show'])->name('seleksi.detail');
+    Route::get('/seleksi/detail/{id}', [SeleksiController::class, 'show'])->name('seleksi.detail');
     Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman');
     Route::put('/pendaftaran', [StudentsController::class, 'store'])->name('pendaftaran');
     Route::get('/quiz/{id}', [QuizController::class, 'index'])->name('quiz');
     Route::put('/quiz/submit/{id}', [QuizController::class, 'store'])->name('quiz.submit');
 });
 
-
-// Route::post('/users', [TestsController::class, 'store'])
-//     ->name('users')
-//     ->middleware('auth');
-
 Route::get('/laporan-seleksi', [PDFController::class, 'cetakseleksi'])->name('download.laporan-seleksi');
 Route::get('/export-laporan-seleksi', [PDFController::class, 'export'])->name('export.laporan-seleksi');
-// Route::get('/seleksi/diterima', [PengumumanController::class, 'test'])->name('seleksi.diterima');
 Route::get('/seleksi/diterima/{id}', [PengumumanController::class, 'sendNotificationDiterima'])->name('seleksi.diterima');
 Route::get('/pemberitauan', [PengumumanController::class, 'sendNotification'])->name('pemberitahuan');

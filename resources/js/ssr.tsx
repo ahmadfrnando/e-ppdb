@@ -6,7 +6,7 @@ import { RouteContext } from '@/Hooks/useRoute';
 import route from 'ziggy-js';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
-const appName = 'Laravel';
+const appName = 'E-PPDB';
 
 createServer(page =>
   createInertiaApp({
