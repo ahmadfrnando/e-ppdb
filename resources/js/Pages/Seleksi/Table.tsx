@@ -50,6 +50,9 @@ const Table = () => {
                 Photo
               </th>
               <th scope="col" className="px-6 py-3">
+                Nilai Ujian
+              </th>
+              <th scope="col" className="px-6 py-3">
                 Seleksi
               </th>
               <th scope="col" className="px-6 py-3">
